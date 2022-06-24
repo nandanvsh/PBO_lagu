@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AlbumModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Album">
+          <Key>
+            <PropertyRef Name="Id_album" />
+          </Key>
+          <Property Name="Id_album" Type="bigint" Nullable="false" />
+          <Property Name="jml_album" Type="int" />
+          <Property Name="nama_album " Type="varchar(max)" />
+          <Property Name="tahun" Type="int" />
+          <Property Name="foto_album" Type="varchar(max)" />
+          <Property Name="id_genre" Type="bigint" Nullable="false" />
+          <Property Name="id_band" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="AlbumModelStoreContainer">
+          <EntitySet Name="Album" EntityType="Self.Album" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AlbumModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Album">
+          <Key>
+            <PropertyRef Name="Id_album" />
+          </Key>
+          <Property Name="Id_album" Type="Int64" Nullable="false" />
+          <Property Name="jml_album" Type="Int32" />
+          <Property Name="nama_album_" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="tahun" Type="Int32" />
+          <Property Name="foto_album" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="id_genre" Type="Int64" Nullable="false" />
+          <Property Name="id_band" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="AlbumEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Albums" EntityType="Self.Album" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AlbumModelStoreContainer" CdmEntityContainer="AlbumEntities">
+          <EntitySetMapping Name="Albums">
+            <EntityTypeMapping TypeName="AlbumModel.Album">
+              <MappingFragment StoreEntitySet="Album">
+                <ScalarProperty Name="Id_album" ColumnName="Id_album" />
+                <ScalarProperty Name="jml_album" ColumnName="jml_album" />
+                <ScalarProperty Name="nama_album_" ColumnName="nama_album " />
+                <ScalarProperty Name="tahun" ColumnName="tahun" />
+                <ScalarProperty Name="foto_album" ColumnName="foto_album" />
+                <ScalarProperty Name="id_genre" ColumnName="id_genre" />
+                <ScalarProperty Name="id_band" ColumnName="id_band" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LaguModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Lagu">
+          <Key>
+            <PropertyRef Name=" id_lagu" />
+          </Key>
+          <Property Name=" id_lagu" Type="bigint" Nullable="false" />
+          <Property Name="id_album" Type="bigint" />
+          <Property Name="nama_lagu" Type="varchar(max)" />
+          <Property Name="foto_lagu" Type="varchar(max)" />
+        </EntityType>
+        <EntityContainer Name="LaguModelStoreContainer">
+          <EntitySet Name="Lagu" EntityType="Self.Lagu" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LaguModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Lagu">
+          <Key>
+            <PropertyRef Name="C_id_lagu" />
+          </Key>
+          <Property Name="C_id_lagu" Type="Int64" Nullable="false" />
+          <Property Name="id_album" Type="Int64" />
+          <Property Name="nama_lagu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="foto_lagu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="LaguEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Lagus" EntityType="Self.Lagu" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LaguModelStoreContainer" CdmEntityContainer="LaguEntities">
+          <EntitySetMapping Name="Lagus">
+            <EntityTypeMapping TypeName="LaguModel.Lagu">
+              <MappingFragment StoreEntitySet="Lagu">
+                <ScalarProperty Name="C_id_lagu" ColumnName=" id_lagu" />
+                <ScalarProperty Name="id_album" ColumnName="id_album" />
+                <ScalarProperty Name="nama_lagu" ColumnName="nama_lagu" />
+                <ScalarProperty Name="foto_lagu" ColumnName="foto_lagu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

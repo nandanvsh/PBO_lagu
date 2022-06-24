@@ -1,0 +1,50 @@
+﻿@model lagu.Entity.Lagu
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Lagu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.C_id_lagu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.C_id_lagu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_album)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_album)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nama_lagu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nama_lagu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.foto_lagu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.foto_lagu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.C_id_lagu }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
