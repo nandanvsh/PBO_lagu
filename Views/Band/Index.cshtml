@@ -1,24 +1,20 @@
 ﻿@model IEnumerable<lagu.Entity.Band>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Band";
 }
-
-<h2>Index</h2>
+<div class="text-center"> <h2>Band</h2> </div>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", new { @area = "" }, new { @class = "btn btn-success" })
 </p>
-<table class="table">
+<table class="table table-bordered table-responsive table-striped table-hover">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.id_band)
+           Nama Band
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.nama_band)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.biografi)
+            Biografi
         </th>
         <th></th>
     </tr>
@@ -26,18 +22,15 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.id_band)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.nama_band)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.biografi)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_band }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_band }) |
-            @Html.ActionLink("Delete", "Delete", new {  id=item.id_band })
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_band }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_band }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.id_band }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

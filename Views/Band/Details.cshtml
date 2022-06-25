@@ -37,6 +37,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id_band}) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_band}, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("Back to List", "Index", new { @area = "" }, new { @class = "btn btn-info" })
 </p>

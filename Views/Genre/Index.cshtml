@@ -1,15 +1,14 @@
 ﻿@model IEnumerable<lagu.Entity.Genre>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Genre";
 }
-
-<h2>Index</h2>
+<div class="text-center"> <h2>Genre</h2> </div>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", new { @area = "" }, new { @class = "btn btn-success" })
 </p>
-<table class="table">
+<table class="table table-bordered table-responsive table-striped table-hover">
     <tr>
         <th>
            Nama Genre
@@ -23,9 +22,9 @@
             @Html.DisplayFor(modelItem => item.nama_genre_)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_genre_ }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_genre_ }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_genre_ })
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_genre_ }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_genre_ }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_genre_ }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }
